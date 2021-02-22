@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		A355330A25E3F06800814B04 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A355330925E3F06800814B04 /* HomeViewController.swift */; };
 		A355330F25E3F06800814B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A355330E25E3F06800814B04 /* Assets.xcassets */; };
 		A355331225E3F06800814B04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A355331025E3F06800814B04 /* LaunchScreen.storyboard */; };
+		A3E465B025E4073C00393A8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3E465AF25E4073C00393A8A /* GoogleService-Info.plist */; };
 		A3FA20B425E3FE0E0069E73C /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA20B325E3FE0E0069E73C /* ExploreViewController.swift */; };
 		A3FA20B825E3FE210069E73C /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA20B725E3FE210069E73C /* CameraViewController.swift */; };
 		A3FA20BB25E3FE440069E73C /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA20BA25E3FE440069E73C /* NotificationsViewController.swift */; };
@@ -41,6 +42,7 @@
 		A355330E25E3F06800814B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A355331125E3F06800814B04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A355331325E3F06800814B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3E465AF25E4073C00393A8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A3FA20B325E3FE0E0069E73C /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		A3FA20B725E3FE210069E73C /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		A3FA20BA25E3FE440069E73C /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		A3FA20A825E3FC970069E73C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A3E465AF25E4073C00393A8A /* GoogleService-Info.plist */,
 				A355330E25E3F06800814B04 /* Assets.xcassets */,
 				A355330525E3F06800814B04 /* AppDelegate.swift */,
 				A355330725E3F06800814B04 /* SceneDelegate.swift */,
@@ -210,7 +213,6 @@
 				42AD6DBB8ACF425CFC745852 /* Pods-TikTok.debug.xcconfig */,
 				4B00B6E75DBF6538DB18111E /* Pods-TikTok.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -225,6 +227,8 @@
 				A35532FE25E3F06700814B04 /* Sources */,
 				A35532FF25E3F06700814B04 /* Frameworks */,
 				A355330025E3F06700814B04 /* Resources */,
+				FD431E8AA6787ADC34CC631B /* [CP] Embed Pods Frameworks */,
+				A3E465B425E40BB700393A8A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -274,6 +278,7 @@
 			files = (
 				A355331225E3F06800814B04 /* LaunchScreen.storyboard in Resources */,
 				A355330F25E3F06800814B04 /* Assets.xcassets in Resources */,
+				A3E465B025E4073C00393A8A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +305,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3E465B425E40BB700393A8A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		FD431E8AA6787ADC34CC631B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TikTok/Pods-TikTok-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TikTok/Pods-TikTok-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TikTok/Pods-TikTok-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
