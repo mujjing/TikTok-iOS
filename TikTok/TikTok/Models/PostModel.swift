@@ -10,6 +10,8 @@ import Foundation
 struct PostModel {
     let identifire: String
     
+    var isLikedByCurrentUser = false
+    
     static func mokModels() -> [PostModel] {
         var posts = [PostModel]()
         for _ in 0...100 {
