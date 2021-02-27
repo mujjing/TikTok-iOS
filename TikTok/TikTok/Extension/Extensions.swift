@@ -28,20 +28,3 @@ extension UIView {
         return top + height
     }
 }
-
-extension DateFormatter {
-    static let defaultDateFormat: DateFormatter = {
-       let dateFormmat = DateFormatter()
-        dateFormmat.timeZone = .current
-        dateFormmat.locale = .current
-        dateFormmat.dateStyle = .medium
-        dateFormmat.timeStyle = .short
-        return dateFormmat
-    }()
-}
-
-extension String {
-    static func date(with date: Date) -> String {
-        return DateFormatter.defaultDateFormat.string(from: date)
-    }
-}
