@@ -86,8 +86,10 @@ extension HomeViewController {
     func setUpFollowingFeed() {
         guard let model = followingPosts.first else { return }
         
+        let vc = PostViewController(model: model)
+        vc.delegate = self
         followingPagingController.setViewControllers(
-            [PostViewController(model: model)],
+            [vc],
             direction: .forward,
             animated: false,
             completion: nil
@@ -105,8 +107,10 @@ extension HomeViewController {
     func setUpForYouFeed() {
         guard let model = forYouPosts.first else { return }
         
+        let vc = PostViewController(model: model)
+        vc.delegate = self
         forYouPagingController.setViewControllers(
-            [PostViewController(model: model)],
+            [vc],
             direction: .forward,
             animated: false,
             completion: nil
@@ -135,6 +139,7 @@ extension HomeViewController: UIPageViewControllerDataSource {
         let priorIndex = index - 1
         let model = currentPost[priorIndex]
         let vc = PostViewController(model: model)
+        vc.delegate = self
         return vc
     }
     
@@ -150,6 +155,7 @@ extension HomeViewController: UIPageViewControllerDataSource {
         let nextIndex = index + 1
         let model = currentPost[nextIndex]
         let vc = PostViewController(model: model)
+        vc.delegate = self
         return vc
     }
     
@@ -173,4 +179,52 @@ extension HomeViewController: UIScrollViewDelegate {
             control.selectedSegmentIndex = 1
         }
     }
+}
+
+extension HomeViewController: PostViewControllerDelegate {
+    func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel) {
+        (parent as? UIPageViewController)?.view.isUserInteractionEnabled = false
+        horizontalScrollView.isScrollEnabled = false
+        if horizontalScrollView.contentOffset.x == 0 {
+            
+            followingPagingController.dataSource = nil
+        } else {
+            forYouPagingController.dataSource = nil
+        }
+        let vc = CommentsViewController(post: post)
+        vc.delegate = self
+        addChild(vc)
+        vc.didMove(toParent: self)
+        view.addSubview(vc.view)
+        let frame: CGRect = CGRect(x: 0, y: view.height, width: view.width, height: view.height * 0.76)
+        vc.view.frame = frame
+        UIView.animate(withDuration: 0.2) {
+            vc.view.frame = CGRect(x: 0, y: self.view.height - frame.height, width: frame.width, height: frame.height)
+        }
+    }
+}
+
+extension HomeViewController: CommentsViewControllerDelegate {
+    func didTapCloseForComment(with viewController: CommentsViewController) {
+        //close comments with animation
+        let frame: CGRect = viewController.view.frame
+        viewController.view.frame = frame
+        UIView.animate(withDuration: 0.2) {
+            viewController.view.frame = CGRect(x: 0, y: self.view.height, width: frame.width, height: frame.height)
+        }completion: { [weak self] done in
+            if done {
+                DispatchQueue.main.async {
+                    //remove comment vc as child
+                    viewController.view.removeFromSuperview()
+                    viewController.removeFromParent()
+                    //allow horizontal and vertical scroll
+                    self?.horizontalScrollView.isScrollEnabled = true
+                    self?.forYouPagingController.dataSource = self
+                    self?.followingPagingController.dataSource = self
+                }
+            }
+        }
+    }
+    
+    
 }
