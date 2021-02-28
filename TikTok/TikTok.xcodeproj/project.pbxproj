@@ -11,6 +11,7 @@
 		A320C43325E5350A005D593A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A320C43225E5350A005D593A /* Extensions.swift */; };
 		A320C43625E5409B005D593A /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A320C43525E5409B005D593A /* PostModel.swift */; };
 		A32D392E25E7FDD7003576BE /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D392D25E7FDD7003576BE /* CommentsViewController.swift */; };
+		A3451D7525EBF8E500DF07B4 /* video.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = A3451D7425EBF8E500DF07B4 /* video.MP4 */; };
 		A355330625E3F06800814B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A355330525E3F06800814B04 /* AppDelegate.swift */; };
 		A355330825E3F06800814B04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A355330725E3F06800814B04 /* SceneDelegate.swift */; };
 		A355330A25E3F06800814B04 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A355330925E3F06800814B04 /* HomeViewController.swift */; };
@@ -43,6 +44,7 @@
 		A320C43225E5350A005D593A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A320C43525E5409B005D593A /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		A32D392D25E7FDD7003576BE /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		A3451D7425EBF8E500DF07B4 /* video.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.MP4; sourceTree = "<group>"; };
 		A355330225E3F06800814B04 /* TikTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TikTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A355330525E3F06800814B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A355330725E3F06800814B04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		A3FA20A825E3FC970069E73C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A3451D7425EBF8E500DF07B4 /* video.MP4 */,
 				A3E465AF25E4073C00393A8A /* GoogleService-Info.plist */,
 				A355330E25E3F06800814B04 /* Assets.xcassets */,
 				A355330525E3F06800814B04 /* AppDelegate.swift */,
@@ -301,6 +304,7 @@
 			files = (
 				A355331225E3F06800814B04 /* LaunchScreen.storyboard in Resources */,
 				A355330F25E3F06800814B04 /* Assets.xcassets in Resources */,
+				A3451D7525EBF8E500DF07B4 /* video.MP4 in Resources */,
 				A3E465B025E4073C00393A8A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
