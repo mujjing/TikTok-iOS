@@ -10,6 +10,8 @@ import Foundation
 struct PostModel {
     let identifire: String
     
+    let user = User(username: "jordy", profilePictureURL: nil, identifier: UUID().uuidString)
+    
     var isLikedByCurrentUser = false
     
     static func mokModels() -> [PostModel] {
