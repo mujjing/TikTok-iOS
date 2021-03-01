@@ -62,6 +62,7 @@ class PostViewController: UIViewController {
     }()
     
     var player: AVPlayer?
+    private var playerDidFinishObserver:NSObjectProtocol?
     
     let color: [UIColor] = [.red, .orange, .green, .blue, .purple]
     
@@ -112,6 +113,16 @@ class PostViewController: UIViewController {
         view.layer.addSublayer(playerLayer)
         player?.volume = 0.0
         player?.play()
+        
+        guard let player = player else { return }
+        
+        playerDidFinishObserver = NotificationCenter.default.addObserver(
+            forName: .AVPlayerItemDidPlayToEndTime,
+            object: player.currentItem,
+            queue: .main) { _ in
+            player.seek(to: .zero)
+            player.play()
+        }
     }
 
     func setUpButtons() {
