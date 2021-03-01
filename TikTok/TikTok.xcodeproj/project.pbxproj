@@ -17,6 +17,13 @@
 		A355330A25E3F06800814B04 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A355330925E3F06800814B04 /* HomeViewController.swift */; };
 		A355330F25E3F06800814B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A355330E25E3F06800814B04 /* Assets.xcassets */; };
 		A355331225E3F06800814B04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A355331025E3F06800814B04 /* LaunchScreen.storyboard */; };
+		A36F0ABF25ED402000FEBE44 /* ExploreSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F0ABE25ED402000FEBE44 /* ExploreSection.swift */; };
+		A36F0AC225ED40E900FEBE44 /* ExploreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F0AC125ED40E900FEBE44 /* ExploreCell.swift */; };
+		A36F0AC525ED426E00FEBE44 /* ExploreSectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F0AC425ED426E00FEBE44 /* ExploreSectionType.swift */; };
+		A36F0AC825ED448B00FEBE44 /* ExploreBannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F0AC725ED448B00FEBE44 /* ExploreBannerViewModel.swift */; };
+		A36F0ACB25ED44AD00FEBE44 /* ExplorePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F0ACA25ED44AD00FEBE44 /* ExplorePostViewModel.swift */; };
+		A36F0ACE25ED44D600FEBE44 /* ExploreHashTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F0ACD25ED44D600FEBE44 /* ExploreHashTagViewModel.swift */; };
+		A36F0AD125ED44F100FEBE44 /* ExploreUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F0AD025ED44F100FEBE44 /* ExploreUserViewModel.swift */; };
 		A39F506925EA709C0078F106 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F506825EA709C0078F106 /* CommentTableViewCell.swift */; };
 		A3D7447225E9EF260087836D /* PostComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7447125E9EF260087836D /* PostComment.swift */; };
 		A3D7447525E9EF6A0087836D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7447425E9EF6A0087836D /* User.swift */; };
@@ -52,6 +59,13 @@
 		A355330E25E3F06800814B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A355331125E3F06800814B04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A355331325E3F06800814B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A36F0ABE25ED402000FEBE44 /* ExploreSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSection.swift; sourceTree = "<group>"; };
+		A36F0AC125ED40E900FEBE44 /* ExploreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCell.swift; sourceTree = "<group>"; };
+		A36F0AC425ED426E00FEBE44 /* ExploreSectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSectionType.swift; sourceTree = "<group>"; };
+		A36F0AC725ED448B00FEBE44 /* ExploreBannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreBannerViewModel.swift; sourceTree = "<group>"; };
+		A36F0ACA25ED44AD00FEBE44 /* ExplorePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePostViewModel.swift; sourceTree = "<group>"; };
+		A36F0ACD25ED44D600FEBE44 /* ExploreHashTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHashTagViewModel.swift; sourceTree = "<group>"; };
+		A36F0AD025ED44F100FEBE44 /* ExploreUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreUserViewModel.swift; sourceTree = "<group>"; };
 		A39F506825EA709C0078F106 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		A3D7447125E9EF260087836D /* PostComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComment.swift; sourceTree = "<group>"; };
 		A3D7447425E9EF6A0087836D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -169,6 +183,9 @@
 				A320C43525E5409B005D593A /* PostModel.swift */,
 				A3D7447125E9EF260087836D /* PostComment.swift */,
 				A3D7447425E9EF6A0087836D /* User.swift */,
+				A36F0ABE25ED402000FEBE44 /* ExploreSection.swift */,
+				A36F0AC125ED40E900FEBE44 /* ExploreCell.swift */,
+				A36F0AC425ED426E00FEBE44 /* ExploreSectionType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,6 +193,10 @@
 		A3FA20AC25E3FD0A0069E73C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				A36F0AC725ED448B00FEBE44 /* ExploreBannerViewModel.swift */,
+				A36F0ACA25ED44AD00FEBE44 /* ExplorePostViewModel.swift */,
+				A36F0ACD25ED44D600FEBE44 /* ExploreHashTagViewModel.swift */,
+				A36F0AD025ED44F100FEBE44 /* ExploreUserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -378,14 +399,20 @@
 				A3FA20E125E4002C0069E73C /* HapticsManager.swift in Sources */,
 				A320C43325E5350A005D593A /* Extensions.swift in Sources */,
 				A3FA20DB25E3FFD70069E73C /* DatabaseManager.swift in Sources */,
+				A36F0ABF25ED402000FEBE44 /* ExploreSection.swift in Sources */,
 				A39F506925EA709C0078F106 /* CommentTableViewCell.swift in Sources */,
 				A3FA20B425E3FE0E0069E73C /* ExploreViewController.swift in Sources */,
 				A3FA20C125E3FE840069E73C /* UserListViewController.swift in Sources */,
 				A3FA20CA25E3FECF0069E73C /* SettingsViewController.swift in Sources */,
 				A3FA20D225E3FF6F0069E73C /* PostViewController.swift in Sources */,
 				A3FA20B825E3FE210069E73C /* CameraViewController.swift in Sources */,
+				A36F0ACB25ED44AD00FEBE44 /* ExplorePostViewModel.swift in Sources */,
+				A36F0AC225ED40E900FEBE44 /* ExploreCell.swift in Sources */,
 				A32D392E25E7FDD7003576BE /* CommentsViewController.swift in Sources */,
+				A36F0AC825ED448B00FEBE44 /* ExploreBannerViewModel.swift in Sources */,
 				A3FA20CD25E3FF050069E73C /* TabBarViewController.swift in Sources */,
+				A36F0AD125ED44F100FEBE44 /* ExploreUserViewModel.swift in Sources */,
+				A36F0ACE25ED44D600FEBE44 /* ExploreHashTagViewModel.swift in Sources */,
 				A3D7447525E9EF6A0087836D /* User.swift in Sources */,
 				A355330A25E3F06800814B04 /* HomeViewController.swift in Sources */,
 				A3FA20C725E3FEB40069E73C /* SignUpViewController.swift in Sources */,
@@ -398,6 +425,7 @@
 				A3FA20D825E3FFB60069E73C /* StorageManager.swift in Sources */,
 				A355330625E3F06800814B04 /* AppDelegate.swift in Sources */,
 				A355330825E3F06800814B04 /* SceneDelegate.swift in Sources */,
+				A36F0AC525ED426E00FEBE44 /* ExploreSectionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
