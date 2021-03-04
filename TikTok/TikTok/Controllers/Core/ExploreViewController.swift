@@ -38,7 +38,7 @@ class ExploreViewController: UIViewController {
     
     func configureModel() {
         var cells = [ExploreCell]()
-        for x in 0...100 {
+        for ＿ in 0...100 {
             let cell = ExploreCell.banner(
                 viewModel: ExploreBannerViewModel(image: nil, title: "Foo", handler: {
                     
@@ -46,9 +46,128 @@ class ExploreViewController: UIViewController {
             )
             cells.append(cell)
         }
+        //banners
         sections.append(
             ExploreSection(type: .banners,
                            cells: cells)
+        )
+        
+        // Trending posts
+        sections.append(
+            ExploreSection(type: .trendingPosts, cells: [
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                })),
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                })),
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                })),
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                })),
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                }))
+            ]
+            )
+        )
+        // users
+        sections.append(
+            ExploreSection(type: .users, cells: [
+                .user(viewModel: ExploreUserViewModel(profilePictureURL: nil, username: "", followerCount: 0, handler: {
+                
+            })),
+                .user(viewModel: ExploreUserViewModel(profilePictureURL: nil, username: "", followerCount: 0, handler: {
+                
+            })),
+                .user(viewModel: ExploreUserViewModel(profilePictureURL: nil, username: "", followerCount: 0, handler: {
+                
+            })),
+                .user(viewModel: ExploreUserViewModel(profilePictureURL: nil, username: "", followerCount: 0, handler: {
+                
+            }))
+            ]
+            )
+        )
+        // trending hashtags
+        sections.append(
+            ExploreSection(type: .trendingHashtags, cells: [
+                .hashtag(viewModel: ExploreHashTagViewModel(icon: nil, text: "#foryou", count: 1, handler: {
+                    
+                })),
+                .hashtag(viewModel: ExploreHashTagViewModel(icon: nil, text: "#foryou", count: 1, handler: {
+                    
+                })),
+                .hashtag(viewModel: ExploreHashTagViewModel(icon: nil, text: "#foryou", count: 1, handler: {
+                    
+                })),
+                .hashtag(viewModel: ExploreHashTagViewModel(icon: nil, text: "#foryou", count: 1, handler: {
+                    
+                })),
+            ]
+            )
+        )
+        // recommended
+        sections.append(
+            ExploreSection(type: .recommended, cells: [
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                })),
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                })),
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                })),
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                })),
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                }))
+            ])
+        )
+        // popular
+        sections.append(
+            ExploreSection(type: .popular, cells: [
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                })),
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                })),
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                })),
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                })),
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                }))
+            ])
+        )
+        // new/recent
+        sections.append(
+            ExploreSection(type: .new, cells: [
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                })),
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                })),
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                })),
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                })),
+                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                    
+                }))
+            ])
         )
     }
     
@@ -69,38 +188,143 @@ class ExploreViewController: UIViewController {
         
         switch sectionType {
         case .banners:
-            break
+            //item
+            let item = NSCollectionLayoutItem(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .fractionalHeight(1))
+            )
+            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4 )
+            //group
+            let group = NSCollectionLayoutGroup.horizontal(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(0.9),
+                    heightDimension: .absolute(200)),
+                subitems: [item])
+            //section layout
+            let sectionLayout = NSCollectionLayoutSection(group: group)
+            sectionLayout.orthogonalScrollingBehavior = .groupPaging
+            //return
+            return sectionLayout
         case .trendingPosts:
-            break
+            //item
+            let item = NSCollectionLayoutItem(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .fractionalHeight(1))
+            )
+            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4 )
+            //group
+            let verticalGroup = NSCollectionLayoutGroup.vertical(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .absolute(100),
+                    heightDimension: .absolute(240)),
+                subitem: item,
+                count: 2
+            )
+            
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .absolute(110), heightDimension: .absolute(240)), subitems: [verticalGroup])
+            //section layout
+            let sectionLayout = NSCollectionLayoutSection(group: group)
+            sectionLayout.orthogonalScrollingBehavior = .continuous
+            //return
+            return sectionLayout
         case .users:
-            break
+            //item
+            let item = NSCollectionLayoutItem(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .fractionalHeight(1))
+            )
+            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4 )
+            //group
+            let group = NSCollectionLayoutGroup.horizontal(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(0.9),
+                    heightDimension: .absolute(200)),
+                subitems: [item])
+            //section layout
+            let sectionLayout = NSCollectionLayoutSection(group: group)
+            sectionLayout.orthogonalScrollingBehavior = .groupPaging
+            //return
+            return sectionLayout
         case .trendingHashtags:
-            break
+            //item
+            let item = NSCollectionLayoutItem(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .fractionalHeight(1))
+            )
+            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4 )
+            //group
+            let group = NSCollectionLayoutGroup.horizontal(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(0.9),
+                    heightDimension: .absolute(200)),
+                subitems: [item])
+            //section layout
+            let sectionLayout = NSCollectionLayoutSection(group: group)
+            sectionLayout.orthogonalScrollingBehavior = .groupPaging
+            //return
+            return sectionLayout
         case .recommended:
-            break
+            //item
+            let item = NSCollectionLayoutItem(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .fractionalHeight(1))
+            )
+            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4 )
+            //group
+            let group = NSCollectionLayoutGroup.horizontal(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(0.9),
+                    heightDimension: .absolute(200)),
+                subitems: [item])
+            //section layout
+            let sectionLayout = NSCollectionLayoutSection(group: group)
+            sectionLayout.orthogonalScrollingBehavior = .groupPaging
+            //return
+            return sectionLayout
         case .popular:
-            break
+            //item
+            let item = NSCollectionLayoutItem(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .fractionalHeight(1))
+            )
+            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4 )
+            //group
+            let group = NSCollectionLayoutGroup.horizontal(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(0.9),
+                    heightDimension: .absolute(200)),
+                subitems: [item])
+            //section layout
+            let sectionLayout = NSCollectionLayoutSection(group: group)
+            sectionLayout.orthogonalScrollingBehavior = .groupPaging
+            //return
+            return sectionLayout
         case .new:
-            break
+            //item
+            let item = NSCollectionLayoutItem(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .fractionalHeight(1))
+            )
+            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4 )
+            //group
+            let group = NSCollectionLayoutGroup.horizontal(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(0.9),
+                    heightDimension: .absolute(200)),
+                subitems: [item])
+            //section layout
+            let sectionLayout = NSCollectionLayoutSection(group: group)
+            sectionLayout.orthogonalScrollingBehavior = .groupPaging
+            //return
+            return sectionLayout
         }
-        //item
-        let item = NSCollectionLayoutItem(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(1))
-        )
-        item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4 )
-        //group
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(0.9),
-                heightDimension: .absolute(200)),
-            subitems: [item])
-        //section layout
-        let sectionLayout = NSCollectionLayoutSection(group: group)
-        sectionLayout.orthogonalScrollingBehavior = .groupPaging
-        //return
-        return sectionLayout
     }
 }
 
