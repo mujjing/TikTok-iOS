@@ -52,26 +52,15 @@ class ExploreViewController: UIViewController {
                            cells: cells)
         )
         
+        var posts = [ExploreCell]()
+        for _ in 0...30 {
+            posts.append(ExploreCell.post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
+                
+            })))
+        }
         // Trending posts
         sections.append(
-            ExploreSection(type: .trendingPosts, cells: [
-                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
-                    
-                })),
-                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
-                    
-                })),
-                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
-                    
-                })),
-                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
-                    
-                })),
-                .post(viewModel: ExplorePostViewModel(thumbnailImage: nil, caption: "", handler: {
-                    
-                }))
-            ]
-            )
+            ExploreSection(type: .trendingPosts, cells: posts)
         )
         // users
         sections.append(
@@ -206,7 +195,45 @@ class ExploreViewController: UIViewController {
             sectionLayout.orthogonalScrollingBehavior = .groupPaging
             //return
             return sectionLayout
-        case .trendingPosts:
+        case .users:
+            //item
+            let item = NSCollectionLayoutItem(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .fractionalHeight(1))
+            )
+            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4 )
+            //group
+            let group = NSCollectionLayoutGroup.horizontal(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .absolute(200),
+                    heightDimension: .absolute(200)),
+                subitems: [item])
+            //section layout
+            let sectionLayout = NSCollectionLayoutSection(group: group)
+            sectionLayout.orthogonalScrollingBehavior = .groupPaging
+            //return
+            return sectionLayout
+        case .trendingHashtags:
+            //item
+            let item = NSCollectionLayoutItem(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .fractionalHeight(1))
+            )
+            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4 )
+            //group
+            let verticalGroup = NSCollectionLayoutGroup.vertical(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .absolute(60)),
+                subitems : [item]
+            )
+  
+            let sectionLayout = NSCollectionLayoutSection(group: verticalGroup)
+            //return
+            return sectionLayout
+        case .trendingPosts, .new, .recommended:
             //item
             let item = NSCollectionLayoutItem(
                 layoutSize: NSCollectionLayoutSize(
@@ -229,63 +256,6 @@ class ExploreViewController: UIViewController {
             sectionLayout.orthogonalScrollingBehavior = .continuous
             //return
             return sectionLayout
-        case .users:
-            //item
-            let item = NSCollectionLayoutItem(
-                layoutSize: NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(1),
-                    heightDimension: .fractionalHeight(1))
-            )
-            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4 )
-            //group
-            let group = NSCollectionLayoutGroup.horizontal(
-                layoutSize: NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(0.9),
-                    heightDimension: .absolute(200)),
-                subitems: [item])
-            //section layout
-            let sectionLayout = NSCollectionLayoutSection(group: group)
-            sectionLayout.orthogonalScrollingBehavior = .groupPaging
-            //return
-            return sectionLayout
-        case .trendingHashtags:
-            //item
-            let item = NSCollectionLayoutItem(
-                layoutSize: NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(1),
-                    heightDimension: .fractionalHeight(1))
-            )
-            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4 )
-            //group
-            let group = NSCollectionLayoutGroup.horizontal(
-                layoutSize: NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(0.9),
-                    heightDimension: .absolute(200)),
-                subitems: [item])
-            //section layout
-            let sectionLayout = NSCollectionLayoutSection(group: group)
-            sectionLayout.orthogonalScrollingBehavior = .groupPaging
-            //return
-            return sectionLayout
-        case .recommended:
-            //item
-            let item = NSCollectionLayoutItem(
-                layoutSize: NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(1),
-                    heightDimension: .fractionalHeight(1))
-            )
-            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4 )
-            //group
-            let group = NSCollectionLayoutGroup.horizontal(
-                layoutSize: NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(0.9),
-                    heightDimension: .absolute(200)),
-                subitems: [item])
-            //section layout
-            let sectionLayout = NSCollectionLayoutSection(group: group)
-            sectionLayout.orthogonalScrollingBehavior = .groupPaging
-            //return
-            return sectionLayout
         case .popular:
             //item
             let item = NSCollectionLayoutItem(
@@ -295,33 +265,11 @@ class ExploreViewController: UIViewController {
             )
             item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4 )
             //group
-            let group = NSCollectionLayoutGroup.horizontal(
-                layoutSize: NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(0.9),
-                    heightDimension: .absolute(200)),
-                subitems: [item])
+            
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .absolute(110), heightDimension: .absolute(200)), subitems: [item])
             //section layout
             let sectionLayout = NSCollectionLayoutSection(group: group)
-            sectionLayout.orthogonalScrollingBehavior = .groupPaging
-            //return
-            return sectionLayout
-        case .new:
-            //item
-            let item = NSCollectionLayoutItem(
-                layoutSize: NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(1),
-                    heightDimension: .fractionalHeight(1))
-            )
-            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4 )
-            //group
-            let group = NSCollectionLayoutGroup.horizontal(
-                layoutSize: NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(0.9),
-                    heightDimension: .absolute(200)),
-                subitems: [item])
-            //section layout
-            let sectionLayout = NSCollectionLayoutSection(group: group)
-            sectionLayout.orthogonalScrollingBehavior = .groupPaging
+            sectionLayout.orthogonalScrollingBehavior = .continuous
             //return
             return sectionLayout
         }
@@ -339,6 +287,19 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let model = sections[indexPath.section].cells[indexPath.row]
+        
+        switch model {
+        
+        case .banner(let viewModel):
+            break
+        case .post(let viewModel):
+            break
+        case .hashtag(let viewModel):
+            break
+        case .user(let viewModel):
+            break
+        }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         cell.backgroundColor = .red
         return cell
