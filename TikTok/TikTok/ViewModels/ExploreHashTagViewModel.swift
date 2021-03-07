@@ -8,7 +8,7 @@
 import UIKit
 
 struct ExploreHashTagViewModel {
-    let icon: UIImageView?
+    let icon: UIImage?
     let text: String
     let count: Int
     let handler: (()->Void)
